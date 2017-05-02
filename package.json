@@ -1,0 +1,23 @@
+{
+  "name": "funwithstocks",
+  "version": "1.0.0",
+  "description": "An analysis of New York Stock Exchange trends from 2016",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanfaulkenberry100/FunWithStocks.git"
+  },
+  "author": "Lee Sander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanfaulkenberry100/FunWithStocks/issues"
+  },
+  "homepage": "https://github.com/ryanfaulkenberry100/FunWithStocks#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mysql": "^2.13.0"
+  }
+}
