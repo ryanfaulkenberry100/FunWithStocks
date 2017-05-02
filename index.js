@@ -27,10 +27,11 @@ dbconn.connect(function(err){
 
 //insertSQL.stock(dbconn)
 //selectSQL.stock(dbconn)
-selectSQL.selectTicker(dbconn);
+//selectSQL.selectTicker(dbconn);
 selectSQL.selectFundamentals(dbconn);
-selectSQL.stockFundamentals(dbconn, 'ADI');
-//deleteSQL.stock(dbconn)
+//selectSQL.stockFundamentals(dbconn, 'ADI');
+//selectSQL.stockPrices(dbconn, 'ADI');
+//deleteSQL.deleteFundamentals(dbconn)
 //updateSQL.stock(dbconn)
 //createSQL.stock(dbconn)
 

@@ -1,8 +1,15 @@
 const mysql  = require('mysql');
-exports.stock = (dbconn) => {
-  dbconn.query('DELETE FROM users WHERE id = ?', [6], function(err, result){
+
+exports.deleteFundamentals = (dbconn) => {
+
+  dbconn.query('SELECT * FROM Fundamentals WHERE ForYear != ?', 2016,function(err, records){
     if(err) throw err;
 
-    console.log('Record Updated ' + result.affectedRows + ' rows');
+    console.log('Querying selectFundamentals...\n');
+    console.log(count(records));
+    console.log('\n');
+    console.log(JSON.stringify(records));
+    //console.log(records);
+    console.log('\n');
   });
-};
+}
