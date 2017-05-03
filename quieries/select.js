@@ -211,20 +211,6 @@ exports.marketMaxVolume = (dbconn) => {
   });
 }
 
-exports.marketVolume = (dbconn) => {
-
-  dbconn.query('SELECT date,volume FROM Prices', function(err, records){
-    if(err) throw err;
-
-    console.log('Daily Volume for Market' + ':\n');
-
-    console.log('\n');
-    console.log(JSON.stringify(records));
-    console.log('\n');
-    console.log('Records: '+ count(records));
-  });
-}
-
 exports.marketAvgVolume = (dbconn) => {
 
   dbconn.query('SELECT AVG(volume) FROM Prices LIMIT 1', function(err, records){

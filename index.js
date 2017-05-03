@@ -42,7 +42,7 @@ dbconn.connect(function(err){
 //selectSQL.marketAvgVolume(dbconn);
 //selectSQL.marketMinVolume(dbconn);
 //selectSQL.marketMaxVolume(dbconn);
-selectSQL.marketVolume(dbconn);
+//selectSQL.marketMaxVolume(dbconn);
 //selectSQL.sectorAvgVolume(dbconn, 'Energy');
 //selectSQL.stockPrices(dbconn, 'ADI');
 //deleteSQL.deleteFundamentals(dbconn)
