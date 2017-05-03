@@ -28,8 +28,22 @@ dbconn.connect(function(err){
 //insertSQL.stock(dbconn)
 //selectSQL.stock(dbconn)
 //selectSQL.selectTicker(dbconn);
-selectSQL.selectFundamentals(dbconn);
+//selectSQL.selectFundamentalsYear(dbconn, 2016);
+//selectSQL.selectAllStocks(dbconn);
 //selectSQL.stockFundamentals(dbconn, 'ADI');
+//selectSQL.stockSecurities(dbconn, 'ADI');
+//selectSQL.stockSecuritiesBySector(dbconn, 'Energy');
+//selectSQL.stockTotalsBySector(dbconn, 'Energy');
+//selectSQL.stockTotalsByTicker(dbconn, 'ADI');
+//selectSQL.stockMaxPrice(dbconn, 'ADI');
+//selectSQL.stockMinPrice(dbconn, 'ADI');
+//selectSQL.stockAvgPrice(dbconn, 'ADI');
+//selectSQL.stockAvgVolume(dbconn, 'ADI');
+//selectSQL.marketAvgVolume(dbconn);
+//selectSQL.marketMinVolume(dbconn);
+//selectSQL.marketMaxVolume(dbconn);
+selectSQL.marketVolume(dbconn);
+//selectSQL.sectorAvgVolume(dbconn, 'Energy');
 //selectSQL.stockPrices(dbconn, 'ADI');
 //deleteSQL.deleteFundamentals(dbconn)
 //updateSQL.stock(dbconn)
