@@ -1,0 +1,55 @@
+      <pre class="">
+        <code class="language-sql">
+//Join of Fundamentals and Securities tables to display totals per company
+SELECT f.TotalAssets, f.TotalRevenue, s.SecurityName, s.Sector,
+FROM Fundamentals f, Securities s
+WHERE f.tickerSymbol = s.tickerSymbol
+
+//Rename column for tickerSymbol
+ALTER TABLE Fundamentals Change TickerSymbol tickerSymbol varchar(5)
+
+
+//Display by Company average, max, and min annual volume
+SELECT s.tickerSymbol, s.SecurityName AS Company, AVG(p.volume) AS AverageVolume,
+MAX(p.volume) AS MaxVolume,
+MIN(p.volume) MinVolume
+
+FROM Securities s, Prices p
+
+WHERE s.tickerSymbol = p.tickerSymbol AND s.tickerSymbol !=  'WLTW'
+
+GROUP BY tickerSymbol
+
+
+//Delete rows containing 2015 info
+DELETE * FROM Fundamentals WHERE ForYear = '2016'
+
+
+//Create view joining Securities and Prices to display volumes per sector
+CREATE VIEW VSectorVolume
+AS
+SELECT s.Sector, AVG(p.volume) AS AverageVolume, MAX(p.volume) AS MaxVolume,
+MIN(p.volume) AS MinVolume
+FROM Securities s, Prices p
+WHERE s.tickerSymbol = p.tickerSymbol
+GROUP BY s.Sector
+
+
+
+//Display MAX and MIN close price per company in 2016
+SELECT s.tickerSymbol, s.SecurityName AS Company, MIN(p.close) AS MinClose,
+MAX(p.close) AS MaxClose, f.ForYear AS Year
+
+FROM Securities s, Prices p, Fundamentals f
+
+WHERE s.tickerSymbol = p.tickerSymbol AND p.tickerSymbol = f.tickerSymbol
+
+GROUP BY tickerSymbol
+
+
+//Insert some data into Securities table
+INSERT INTO Securities (tickerSymbol, SecurityName, Sector, SubSector, Address, CIK)
+
+VALUES('TTHC', 'Texas Tech Health Center', 'Health Care', 'Health Care Equipment', 'Lubbock, Texas', 9999)
+        </code>
+      </pre>

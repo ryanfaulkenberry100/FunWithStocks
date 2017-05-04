@@ -1,0 +1,34 @@
+<div class="horz-div mdl-cell mdl-grid.center-items vert-div">
+  <div class="mdl-card mdl-shadow--4dp card-wide">
+    <div class="mdl-card__title center">
+      <h5>Sector Min Volumes</h5>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <div class="mdl-card mdl-shadow--4dp card-wide">
+    <div class="mdl-card__title center">
+      <h5>Findings</h5>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <p>
+        Notes...
+      </p>
+    </div>
+  </div>
+</div>
+  <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+     labels: ['Energy','Health Care','Industrials', 'Information Technology', 'Consumer Staples', 'Utilities', 'Financials', 'Real Estate', 'Materials', 'Consumer Discretionary', 'Telecommunications Services'],
+     datasets: [{
+       label: 'Min',
+       data: [302300,67200,77400,170000,265600,200400,0,131100, 156000, 0, 850200],
+       backgroundColor: "rgba(54, 162, 235, 0.8)"
+     }]
+    }
+  });
+  </script>

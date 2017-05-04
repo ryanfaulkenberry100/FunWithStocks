@@ -1,0 +1,27 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">{{{title}}}</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Menu</span>
+    <!--<img src="{{user.profile.picture}}" height="90px" width="90px"/> -->
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="/stock">Find Stock</a>
+        <a class="mdl-navigation__link" href="/sectoravg">Sector Avg Volumes</a>
+        <a class="mdl-navigation__link" href="/sectormax">Sector Max Volumes</a>
+        <a class="mdl-navigation__link" href="/sectormin">Sector Min Volumes</a>
+        <a class="mdl-navigation__link" href="/market">Market</a>
+        <a class="mdl-navigation__link" href="/sql">SQL Queries</a>
+    </nav>
+  </div>
+  <div class="mdl-grid content-grid vs mdl-grid.center-items">
+      <!-- Your content goes here -->

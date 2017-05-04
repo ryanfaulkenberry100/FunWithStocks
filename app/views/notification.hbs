@@ -1,0 +1,98 @@
+<script defer ="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link defer rel="import" href="bower_components/platinum-push-messaging/platinum-push-messaging.html">
+<platinum-push-messaging message-url="notification-data.json"></platinum-push-messaging>
+<div class="mdl-cell mdl-grid.center-items vert-div">
+  <form method="POST" class="account-form" action="/notification/update">
+    <input type="hidden" name="email" value="{{{user.email}}}"/>
+    <h5>Get Notifications</h5>
+    <div class="card">
+      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="morning">
+        {{#if user.notification.morning}}
+          <input type="checkbox" id="morning" name="morning" value="true" class="mdl-switch__input" checked>
+        {{else}}
+          <input type="checkbox" id="morning" name="morning" value="true" class="mdl-switch__input">
+        {{/if}}
+        <span class="mdl-switch__label">Morning</span>
+      </label><br/>
+    </div>
+    <div class="card">
+      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="evening">
+        {{#if user.notification.evening}}
+          <input type="checkbox" id="evening" name="evening" value="true" class="mdl-switch__input" checked>
+        {{else}}
+          <input type="checkbox" id="evening" name="evening" value="true" class="mdl-switch__input">
+        {{/if}}
+        <span class="mdl-switch__label">Evening</span>
+      </label><br/>
+    </div>
+    <div class="card">
+      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enable-push">
+          <input type="checkbox" id="enable-push" toggles value="true" name="enable-push" class="mdl-switch__input">
+        <span class="mdl-switch__label">Push Notifications</span>
+      </label><br/>
+      <div class="hidden">
+        <p class="hidden" id="registration-id"></input></br>
+        <p class="hidden" id="subscription"></input></br>
+        <p class="hidden" id="send-instructions"></input></br>
+      </div>
+    </div>
+    <h5>Contact to Notify</h5>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" value="{{{user.contact.name}}}" type="text" name="name" id="name">
+      <label class="mdl-textfield__label" for="name">First Name</label>
+    </div></br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" value="{{{user.contact.email}}}" name="contact_email" id="contact_email">
+      <label class="mdl-textfield__label" for="contact_email">Email</label>
+    </div></br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" pattern="[0-9]*" value="{{{user.contact.phone}}}" name="phone" id="phone">
+      <label class="mdl-textfield__label" for="phone">Phone Number</label>
+    </div></br>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+      Update
+    </button>
+  </form>
+</div>
+
+<script>
+
+  var ppm = document.querySelector('platinum-push-messaging');
+  var toggle = document.getElementById('enable-push');
+  var subscription = document.getElementById('subscription');
+  var registrationId = document.getElementById('registration-id');
+  var sendInstructions = document.getElementById('send-instructions');
+  toggle.disabled = !ppm.supported;
+  if (!ppm.supported) {
+    document.getElementById('supported').style.display = 'none';
+    document.getElementById('unsupported').style.display = '';
+    console.log('Push not supported');
+  }
+  toggle.addEventListener('change', function() {
+    if (toggle.checked) {
+      ppm.disable();
+      ppm.enable();
+      console.log("enabled");
+    } else {
+      ppm.disable();
+    }
+  });
+  ppm.addEventListener('subscription-changed', function(event) {
+    // GCM always needs the subscriptionId passed separately. Note that as of M45,
+    // the subscriptionId and the endpoint have merged.
+    console.log('change');
+    var subscriptionId = ppm.subscription ? ppm.subscription.subscriptionId : undefined;
+    if (ppm.subscription && !ppm.subscription.subscriptionId) {
+      var endpointSections = ppm.subscription.endpoint.split('/');
+      subscriptionId = endpointSections[endpointSections.length - 1];
+    }
+    subscription.textContent = JSON.stringify(ppm.subscription || undefined, null, 2);
+    registrationId.textContent = subscriptionId ? subscriptionId : '';
+    console.log(subscriptionId);
+  });
+  ppm.addEventListener('enabled-changed', function(event) {
+    console.log('change');
+    toggle.checked = ppm.enabled;
+    sendInstructions.style.display = ppm.enabled ? '' : 'none';
+  });
+</script>

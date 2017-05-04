@@ -1,0 +1,34 @@
+<div class="horz-div mdl-cell mdl-grid.center-items vert-div">
+  <div class="mdl-card mdl-shadow--4dp card-wide">
+    <div class="mdl-card__title center">
+      <h5>Sector Max Volumes</h5>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <div class="mdl-card mdl-shadow--4dp card-wide">
+    <div class="mdl-card__title center">
+      <h5>Findings</h5>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <p>
+        Financials, Energy and Health Care have the highest extremes in trading volume.
+      </p>
+    </div>
+  </div>
+</div>
+  <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+     labels: ['Energy','Health Care','Industrials', 'Information Technology', 'Consumer Staples', 'Utilities', 'Financials', 'Real Estate', 'Materials', 'Consumer Discretionary', 'Telecommunications Services'],
+     datasets: [{
+       label: 'Max',
+       data: [273996600,284468100,92267400,133503000,123735700,51880800,375088700,53725900, 141597300, 142168600, 100586200],
+       backgroundColor: "rgba(255, 159, 64, 0.8)"
+     }]
+    }
+  });
+  </script>

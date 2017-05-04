@@ -1,0 +1,181 @@
+.footer {
+  color: #7C4DFF;
+  width: 100%;
+  /*margin: auto;*/
+  text-align: center;
+  padding-bottom: 10px;
+}
+.heart {
+  font-size: 12px;
+}
+
+.visible {
+    visibility: visible
+}
+
+.hidden {
+    visibility: hidden
+}
+.layout-transparent {
+  /*background: url('') center / cover;*/
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+.center{
+  text-align:center!important;
+}
+body {
+  background-color: #EEEEEE;
+  height: 100%;
+}
+.stock-form{
+  text-align: center;
+}
+.mdl-textfield__input{
+  padding-top:10px;
+}
+/*
+.mdl-textfield {
+  margin-top:10px;
+  margin-bottom:20px;
+} */
+app-toolbar {
+  background:#3F51B5;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+.mdl-grid.center-items {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto!important;
+}
+.vs {
+  height:90%!important;
+  width: auto!important;
+}
+.mdl-card {
+  margin-top: 10px;
+}
+@media (min-width: 325px){
+  .interactive-form{
+    padding-top: 20px;
+  }
+}
+@media (min-width: 800px){
+  .card-wide {
+    width: 512px!important;
+  }
+}
+@media (max-width: 320px){
+  .card-welcome {
+    width:300px;
+  }
+  .footer {
+    visibility: hidden;
+  }
+}
+.center-div {
+  margin-bottom: auto;
+  margin-top: auto;
+  width: auto;
+}
+.horz-div {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.vert-div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.card-div {
+  height: 40px;
+}
+.card-title {
+  margin:auto;
+  color: #616161!important;
+}
+.card {
+  margin: 10px;
+  padding: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.mdl-switch__label {
+  left: 0px!important;
+}
+.mdl-switch.is-upgraded {
+  padding-left: 0px!important;
+}
+.full-body {
+  height: 100%;
+}
+.mdl-button--white {
+  color:white!important;
+  font-size: 18px!important;
+}
+.interactive-icon-title {
+  margin:0!important;
+}
+.interactive-button {
+  float:right;
+}
+.interactive-title {
+  text-align:center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.mdl-icon-toggle-interactive {
+  height: 36px!important;
+}
+.material-icons-interactive {
+  font-size:36px!important;
+  line-height: 36px!important;
+  height:36px!important;
+  width:36px!important;
+}
+.mdl-icon-toggle-interactive-64 {
+  height: 72px!important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.mdl-interactive-64 {
+  color:#616161;
+  font-size:72px!important;
+  line-height: 72px!important;
+  height:72px!important;
+  width:72px!important;
+}
+.mdl-icon-toggle.is-checked.mdl-icon-toggle-interactive-64.yes .mdl-icon-toggle__label{
+  color:#00C853!important;
+}
+.mdl-icon-toggle.is-checked.mdl-icon-toggle-interactive-64.no .mdl-icon-toggle__label{
+  color:#FF1744!important;
+}
+.interactive-button-back {
+  float:left;
+}
+.interactive-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55px;
+  margin-right:10px;
+  margin-top:20px;
+  margin-left:10px;
+}
+
+.card-welcome {
+  margin: 10px;
+  padding: 16px;
+  color: #757575;
+  border-radius: 5px;
+  background: url('../images/3.jpg') center / cover;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}

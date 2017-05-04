@@ -1,0 +1,33 @@
+<div class="horz-div mdl-cell mdl-grid.center-items vert-div">
+
+  <div class="mdl-card mdl-shadow--4dp card-wide">
+    <div class="mdl-card__title center">
+      <h5>Market Volume</h5>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+   labels: ['2016','2/11/16','7/25/16'],
+   datasets: [{
+     label: 'Average',
+     data: [4645999.288,0,0],
+     backgroundColor: "rgba(255, 99, 132, 0.8)"
+   }, {
+     label: 'Max',
+     data: [0,37508870,0],
+     backgroundColor: "rgba(255, 159, 64, 0.8)"
+   }, {
+     label: 'Min',
+     data: [0,0,6720000],
+     backgroundColor: "rgba(54, 162, 235, 0.8)"
+   }]
+  }
+  });
+  </script>
+</div>
