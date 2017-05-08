@@ -1,0 +1,53 @@
+//Display by Company average, max, and min annual volume
+SELECT s.tickerSymbol, s.SecurityName AS Company, AVG(p.volume) AS AverageVolume, 
+MAX(p.volume) AS MaxVolume,
+MIN(p.volume) MinVolume
+
+FROM Securities s, Prices p	
+
+WHERE s.tickerSymbol = p.tickerSymbol AND s.tickerSymbol !=  'WLTW'
+
+GROUP BY tickerSymbol
+
+
+//Display by Sector avg, max, min annual volume
+SELECT s.Sector, AVG(p.volume) AS AverageVolume, MAX(p.volume) AS MaxVolume,
+
+MIN(p.volume) MinVolume
+FROM Securities s, Prices p	
+
+WHERE s.tickerSymbol = p.tickerSymbol AND s.tickerSymbol !=  'WLTW'
+
+GROUP BY Sector
+
+//to make column primary key
+ALTER TABLE Prices
+ADD PRIMARY KEY (activityID)
+
+//to make column foreign key
+ALTER TABLE Prices ADD FOREIGN KEY 
+(tickerSymbol) REFERENCES Fundamentals (tickerSymbol)
+//To rename table column
+ALTER TABLE Fundamentals Change TICKER tickerSymbol text
+
+
+//VIEWS
+//Normally we would generate a simple query like:
+SELECT Id, Name, Salary, Gender, DeptName
+FROM tblEmployee e, tbleDepartment d
+WHERE t.DeptId = d.DepartmentId
+
+SELECT f.TotalAssets, f.TotalRevenue, s.SecurityName, s.Sector,  
+FROM Fundamentals f, Securities s
+WHERE f.tickerSymbol = s.tickerSymbol
+
+SELECT 
+
+//To produce VIEW from previous query:
+CREATE VIEW VeEmployeebyDepartment
+AS
+SELECT Id, Name, Salary, Gender, DeptName
+FROM tblEmployee e, tblDepartment d
+WHERE t.DeptId = d.DepartmentId
+
+
