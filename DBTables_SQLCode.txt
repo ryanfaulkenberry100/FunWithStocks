@@ -1,0 +1,40 @@
+//Here is the SQL code for creation of the tables in our database
+//Ryan Faulkenberry, Lee Sanders, Gerard Fierro
+
+
+//Code used for Securities table creation
+CREATE TABLE Securities(
+	tickerSymbol VARCHAR(5)
+	SecurityName VARCHAR(50)
+	Sector       VARCHAR(50)
+	SubIndustry  VARCHAR(50)
+	Address	     VARCHAR (30)
+	CIK	     INT(10)
+PRIMARY KEY (tickerSymbol), NOT NULL
+)
+
+//Code used for Fundamentals table creation//////////////
+CREATE TABLE Fundamentals(
+	tickerSymbol VARCHAR(10),
+	PeriodEnding VARCHAR(10),
+	CommonStocks BIGINT(12),
+	NetIncome    BIGINT(12),
+	ResDev	     BIGINT(12),
+	TotalAssets  BIGINT(12),
+	TotalRevenue BIGINT(12),
+	ForYear	     INT(4),
+PRIMARY KEY (tickerSymbol), NOT NULL
+)
+
+//Code used for Prices table creation///////////////////
+CREATE TABLE Prices(
+	activityID   INT(8),
+	date	     VARCHAR(17),
+	tickerSymbol VARCHAR(5),
+	open         FLOAT(10,6),
+        close        FLOAT(10,6),
+	low          FLOAT(10,6),
+	high	     FLOAT(10,6),
+	volume	     INT(9),
+PRIMARY KEY (activityID), NOT NULL 
+)
